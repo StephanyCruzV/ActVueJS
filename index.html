@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  
+  <body>
+    <div id="app">
+      <p>{{ information.name }}</p>
+      <p>{{ information.id }}</p>
+      <!-- Uso ciclo v-for para desplegar lista -->
+      <li v-for="(interest, index) in interests">
+        {{ interest }}
+      </li>
+      <br>
+
+      <!-- Usar boton y mostrar mensaje con if -->
+      <button @click="done = !done"> Just Click It </button>
+      <h1 v-if = "done"> You Click It! :D</h1>
+      <h1 v-else> What are you waiting? </h1> 
+
+      <p>El mensaje es: {{message}} </p>
+      <input v-model = "message" placeholder="Mensaje a desplegar">
+
+    <!--  ******************************************* -->
+    <!-- Apartado para mostrar imagenes -->
+    <!--  ******************************************* -->
+
+      <!-- Script para función de mostrar imagenes -->
+      <script>
+        function mostrar(id)
+            {
+                var objeto=document.getElementById(id)
+                objeto.style.display="block";
+            } 
+        
+            function ocultar(id)
+            {
+                var objeto=document.getElementById(id)
+                objeto.style.display="none";
+             }
+        </script>
+        
+        <style>
+            .oculto{display:none;}
+        </style>
+        <br />
+       
+        <h4> Mostrar Actividades </h4>
+        <label> Selecciona la actividad que quieras ver:</label>
+        <!-- Uso de botones para mostrar imagen seleccionada -->
+        <form>
+            <input type="button" onclick="mostrar('contenido1') & ocultar('contenido2') & ocultar('contenido3')" value="Sudoku">
+            <input type="button" onclick="mostrar('contenido2') & ocultar('contenido1') & ocultar('contenido3')" value="Sopa de Letras">
+            <input type="button" onclick="mostrar('contenido3') & ocultar('contenido1') & ocultar('contenido2')" value="Crucigrama">
+            <img src = "https://i.pinimg.com/originals/08/ef/54/08ef54da6d5d3b878635a993e769b65e.png" id="contenido1">
+            <img src = "https://edithandedwardlara.com/sopa-pdf/img/1tesalonicenses_1_sopa_de_letras.png" id="contenido2">
+            <img src = "https://i.pinimg.com/originals/95/32/4a/95324a43f233c855ec478a51f8ee3ed9.jpg" id="contenido3">
+        </form>
+
+
+    </div>
+  </body>
+  <script src="archive.js"></script>
+</html>
